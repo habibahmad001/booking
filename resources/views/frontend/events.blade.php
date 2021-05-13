@@ -3,13 +3,12 @@
     .evecalendar{
         font-family: 'Roboto';
         font-size: 10px;
-        position: absolute;
         top: 0px;
         left: 0px;
         right: 0px;
         bottom: 0px;
         border: 1px solid #bbb;
-        min-height: 1507px;
+        min-height: 237vh;
     }
 </style>
 @section('content')

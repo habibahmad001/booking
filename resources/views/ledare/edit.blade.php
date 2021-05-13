@@ -3,7 +3,7 @@
     <h3>Edit Ledare</h3>
     <div class="close-icon"></div>
   </div>
-  <form method="post" action="{{ URL::to("/admin/update-ledare") }}" enctype="multipart/form-data" onSubmit="return validate('edit-');">
+  <form method="post" action="{{ URL::to( BASE_PATH . "admin/update-ledare") }}" enctype="multipart/form-data" onSubmit="return validate('edit-');">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <input type="hidden" name="ledare_id" id="ledare_id">
     <input type="hidden" id="edit-email_exist">

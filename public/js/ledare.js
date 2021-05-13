@@ -22,7 +22,9 @@ $(".edit-icon").click(function () {
     duration: 500,
   });
 
-  $.get('/admin/getledare/' + ledare_id, function(data){
+  var basepath = $("#basepath").val();
+
+  $.get( basepath + 'admin/getledare/' + ledare_id, function(data){
 
     $(".loading-container").fadeOut();
     $(".form-content-box").fadeIn();
@@ -38,9 +40,9 @@ $(".edit-icon").click(function () {
       (ledare.tillg_type == "Visa") ? $("#edit-ledare_tillg_type option[value='Visa']").attr("selected", "selected") : $("#edit-ledare_tillg_type option[value='Passport']").attr("selected", "selected");
       (ledare.register_type == "Registerd") ? $("#edit-ledare_register_type option[value='Registerd']").attr("selected", "selected") : $("#edit-ledare_register_type option[value='Not-registerd']").attr("selected", "selected");
 
-      $("#edit-ledare_kontfile_img").attr("src", "/uploads/ledare/" + ledare.kontfile);
-      $("#edit-ledare_lagbdfile_img").attr("src", "/uploads/lagbd/" + ledare.lagbdfile);
-      $("#edit-ledare_tillgfile_img").attr("src", "/uploads/tillg/" + ledare.tillgfile);
+      $("#edit-ledare_kontfile_img").attr("src", basepath + "uploads/ledare/" + ledare.kontfile);
+      $("#edit-ledare_lagbdfile_img").attr("src", basepath + "uploads/lagbd/" + ledare.lagbdfile);
+      $("#edit-ledare_tillgfile_img").attr("src", basepath + "uploads/tillg/" + ledare.tillgfile);
 
       (ledare.Kont_type == "Visa") ? $('#edit-ledare_kontfile_div').show(300) : '';
       (ledare.lagb_type == "Visa") ? $('#edit-ledare_lagb_div').show(300) : '';

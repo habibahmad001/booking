@@ -22,6 +22,7 @@
 </head>
 
 <body>
+<input type="hidden" name="basepath" id="basepath" value="{!! BASE_PATH !!}">
 
         <header>
             <div class="container-fluid">
@@ -83,14 +84,12 @@
         </div>
 
 
-        
-
 
 
         <!-- Footer Starts Here -->
 
         <footer class="container-fluid text-center">
-            <p>Copyright © 2019 Booking System. All Rights Reserved.</p>
+            <p>Copyright © 2021 Booking System. All Rights Reserved.</p>
         </footer>
 
 </body>

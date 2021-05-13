@@ -22,7 +22,9 @@ $(".edit-icon").click(function () {
     duration: 500,
   });
 
-  $.get('/admin/getlag/' + lag_id, function(data){
+  var basepath = $("#basepath").val();
+
+  $.get( basepath + 'admin/getlag/' + lag_id, function(data){
 
     $(".loading-container").fadeOut();
     $(".form-content-box").fadeIn();
@@ -38,7 +40,7 @@ $(".edit-icon").click(function () {
       (lag.apply_type == "Visa") ? $("#edit-lag_apply_type option[value='Visa']").attr("selected", "selected") : $("#edit-lag_apply_type option[value='Passport']").attr("selected", "selected");
       (lag.register_type == "Registerd") ? $("#edit-lag_register_type option[value='Registerd']").attr("selected", "selected") : $("#edit-lag_register_type option[value='Not-registerd']").attr("selected", "selected");
 
-      $("#edit-lag_apply_type_img").attr("src", "/uploads/lagvisafile/" + lag.visafile);
+      $("#edit-lag_apply_type_img").attr("src", basepath + "uploads/lagvisafile/" + lag.visafile);
 
       (lag.apply_type == "Visa") ? $('#edit-lag_apply_type_div').show(300) : '';
 

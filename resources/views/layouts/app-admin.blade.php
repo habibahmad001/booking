@@ -29,6 +29,7 @@
     <![endif]-->
 </head>
 <body>
+<input type="hidden" name="basepath" id="basepath" value="{!! BASE_PATH !!}">
   <div class="wrapper">
 		<header>
 			@if(session()->has('message'))
@@ -56,7 +57,7 @@
 						<ul role="menu" class="dropdown-menu">
 							<div class="menu-box">
 								<div class="top-container">
-									<div class="image"><img src="{{ (file_exists(public_path().'/uploads/avatars/'. Auth::user()->avatar)) ? URL::asset('/uploads/avatars/' . Auth::user()->avatar) : 'http://via.placeholder.com/150' }}"></div>
+									<div class="image"><img src="{{ (file_exists(public_path().'/uploads/avatars/'. Auth::user()->avatar)) ? URL::asset( BASE_PATH . 'uploads/avatars/' . Auth::user()->avatar ) : 'http://via.placeholder.com/150' }}"></div>
 									<div class="info">
 										<div class="name">{{ Auth::user()->first_name .' '. Auth::user()->last_name }}</div>
 										<div class="email">{{ Auth::user()->email }}</div>

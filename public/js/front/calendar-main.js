@@ -1,6 +1,8 @@
 $(function(){
 
-  $.get('/geteventslist', function(data){
+  var basepath = $("#basepath").val();
+
+  $.get( basepath + 'geteventslist', function(data){
 
     var even = [];
 
@@ -33,12 +35,14 @@ $(function(){
 
     $('#calendar').cal({
 
-      resources : {
-        '15' : 'Location 1',
-        '16' : 'Location 2',
-        '17' : 'Location 3',
-        '90' : 'Location 4'
-      },
+      // resources : {
+      //   '15' : 'Location 1',
+      //   '16' : 'Location 2',
+      //   '17' : 'Location 3',
+      //   '90' : 'Location 4'
+      // },
+
+      resources   :false,
 
       allowresize		: true,
       allowmove		: true,
@@ -70,7 +74,7 @@ $(function(){
 
 function callcal() {
 
-  // $('#calendar').html("");
+  var basepath = $("#basepath").val();
 
   var ids = [];
 
@@ -82,7 +86,7 @@ function callcal() {
 
   // console.log(ids);
 
-  $.get('/geteventonid/' + ids.toString(), function(data){
+  $.get( basepath + 'geteventonid/' + ids.toString(), function(data){
     // console.log(data);
     var idnum = Math.floor(Math.random() * 1000);
     $("#calcont").append('<div id="calendar'+idnum+'" class="evecalendar"></div>');
@@ -118,12 +122,14 @@ function callcal() {
 
     $('#calendar'+idnum).cal({
 
-      resources : {
-        '15' : 'Location 1',
-        '16' : 'Location 2',
-        '17' : 'Location 3',
-        '90' : 'Location 4'
-      },
+      // resources : {
+      //   '15' : 'Location 1',
+      //   '16' : 'Location 2',
+      //   '17' : 'Location 3',
+      //   '90' : 'Location 4'
+      // },
+
+      resources   :false,
 
       allowresize		: true,
       allowmove		: true,

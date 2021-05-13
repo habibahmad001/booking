@@ -6,7 +6,7 @@
 @include('blocks.left-menu-' . collect(request()->segments())->first())
 
 <div class="center-content-area">
-  <form method="post" action="{{ URL::to('/' . collect(request()->segments())->first() . '/users/'.Auth::user()->id) }}" onsubmit="return validate()" enctype="multipart/form-data">
+  <form method="post" action="{{ URL::to( BASE_PATH . collect(request()->segments())->first() . '/users/'.Auth::user()->id) }}" onsubmit="return validate()" enctype="multipart/form-data">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <input type="hidden" name="_method" value="PUT">
 
@@ -46,7 +46,7 @@
           <label>Avatar</label>
           <div class="field-container">
             <input id="avatar-1" name="avatar" type="file">
-            <span><img src="{{ (file_exists(public_path().'/uploads/avatars/'. Auth::user()->avatar)) ? URL::asset('/uploads/avatars/' . $user->avatar) : 'http://via.placeholder.com/150' }}"></span>
+            <span><img src="{{ (file_exists(public_path().'/uploads/avatars/'. Auth::user()->avatar)) ? URL::asset( BASE_PATH . 'uploads/avatars/' . Auth::user()->avatar ) : 'http://via.placeholder.com/150' }}"></span>
           </div>
         </div>
 

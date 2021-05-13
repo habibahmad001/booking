@@ -4,7 +4,7 @@
     <h3>Create New Hallar</h3>
     <div class="close-icon"></div>
   </div>
-  <form method="POST" action="/admin/hallar_add" enctype="multipart/form-data" onSubmit="return validate('');">
+  <form method="POST" action="{{ URL::to( BASE_PATH . "admin/hallar_add") }}" enctype="multipart/form-data" onSubmit="return validate('');">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <input type="hidden" id="email_exist">
     <div class="form-height-control">

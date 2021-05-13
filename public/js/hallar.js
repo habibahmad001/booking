@@ -22,7 +22,9 @@ $(".edit-icon").click(function () {
     duration: 500,
   });
 
-  $.get('/admin/gethallar/' + hallar_id, function(data){
+  var basepath = $("#basepath").val();
+
+  $.get( basepath + 'admin/gethallar/' + hallar_id, function(data){
 
     $(".loading-container").fadeOut();
     $(".form-content-box").fadeIn();
@@ -37,7 +39,7 @@ $(".edit-icon").click(function () {
       (hallar.apply_type == "Visa") ? $("#edit-hallar_apply_type option[value='Visa']").attr("selected", "selected") : $("#edit-hallar_apply_type option[value='Passport']").attr("selected", "selected");
       (hallar.register_type == "Registerd") ? $("#edit-hallar_register_type option[value='Registerd']").attr("selected", "selected") : $("#edit-hallar_register_type option[value='Not-registerd']").attr("selected", "selected");
 
-      $("#edit-hallar_apply_type_img").attr("src", "/uploads/visafile/" + hallar.visafile);
+      $("#edit-hallar_apply_type_img").attr("src", basepath + "uploads/visafile/" + hallar.visafile);
 
       (hallar.apply_type == "Visa") ? $('#edit-hallar_apply_type_div').show(300) : '';
 

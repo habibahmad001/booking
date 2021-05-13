@@ -22,7 +22,9 @@ $(".edit-icon").click(function () {
     duration: 500,
   });
 
-  $.get('/instructor/getevents/' + events_id, function(data){
+  var basepath = $("#basepath").val();
+
+  $.get( basepath + 'instructor/getevents/' + events_id, function(data){
 
     $(".loading-container").fadeOut();
     $(".form-content-box").fadeIn();
