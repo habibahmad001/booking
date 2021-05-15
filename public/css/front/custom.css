@@ -1,3 +1,21 @@
 .user-filter > p, .user-filter > h3 {
     text-align: left;
 }
+
+.showmobile {
+    display: none;
+}
+
+.showfull {
+    display: block;
+}
+
+@media (max-width: 1020px) {
+    .showmobile {
+        display: block;
+    }
+
+    .showfull {
+        display: none;
+    }
+}
