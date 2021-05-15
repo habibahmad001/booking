@@ -29,20 +29,19 @@ $(function(){
           notes	: notetxt
         };
         even.push(singleevent);
+        SetMobileEvent(singleevent);
       }
     }
     console.log(even);
 
     $('#calendar').cal({
 
-      // resources : {
-      //   '15' : 'Location 1',
-      //   '16' : 'Location 2',
-      //   '17' : 'Location 3',
-      //   '90' : 'Location 4'
-      // },
+      resources : {
+        '15' : 'Location 1',
+        '16' : 'Location 2'
+      },
 
-      resources   :false,
+      //resources   :false,
 
       allowresize		: true,
       allowmove		: true,
@@ -116,20 +115,19 @@ function callcal() {
           notes	: notetxt
         };
         even.push(singleevent);
+        SetMobileEvent(singleevent);
       }
     }
     console.log(even);
 
     $('#calendar'+idnum).cal({
 
-      // resources : {
-      //   '15' : 'Location 1',
-      //   '16' : 'Location 2',
-      //   '17' : 'Location 3',
-      //   '90' : 'Location 4'
-      // },
+      resources : {
+        '15' : 'Location 1',
+        '16' : 'Location 2'
+      },
 
-      resources   :false,
+      //resources   :false,
 
       allowresize		: true,
       allowmove		: true,
@@ -159,4 +157,37 @@ function callcal() {
 
 $(document).ready(function() {
   $('#calendar-demo').dcalendar();
+  $('#vt6').verticalTimeline({
+    animate: 'slide'
+  });
+  // console.log( $.cal.date().addDays(0).format('Y-m-d h:m:s') );
+  // console.log( $.cal.date().addDays(6).format('j F Y') );
 });
+
+function SetMobileEvent(SingleEvent) {
+  var putevent = '';
+  if(SingleEvent["begins"] >= $.cal.date().addDays(0).format('Y-m-d h:m:s')) {
+    if(SingleEvent["begins"] <= $.cal.date().addDays(6).format('Y-m-d h:m:s')) {
+      putevent += '<div class="vtimeline-point" data-uid="' + SingleEvent["uid"] + '">' +
+          '        <div class="vtimeline-icon"></div>' +
+          '        <div class="vtimeline-block">' +
+          '            <span class="vtimeline-date">' + SingleEvent["begins"] + ", " + SingleEvent["ends"].split(" ")[1] + '</span>' +
+          '            <div data-vtdate="' + SingleEvent["begins"] + '" class="vtimeline-content">' +
+          '                <span class="mobileEventTitle">' + SingleEvent["title"] + '</span>' +
+          '                <p>' + SingleEvent["notes"] + '</p>' +
+          '            </div>' +
+          '        </div>' +
+          '    </div>';
+      var eventadded = 0;
+      $("#vt6 div").each(function (e) {
+        if($(this).attr("data-uid") == SingleEvent["uid"]) {
+          eventadded = 1;
+        }
+      });
+
+      if(eventadded == 0) {
+        $("#vt6").append(putevent);
+      }
+    }
+  }
+}
