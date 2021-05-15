@@ -166,12 +166,12 @@ $(document).ready(function() {
 
 function SetMobileEvent(SingleEvent) {
   var putevent = '';
-  if(SingleEvent["begins"] >= $.cal.date().addDays(0).format('Y-m-d h:m:s')) {
-    if(SingleEvent["begins"] <= $.cal.date().addDays(6).format('Y-m-d h:m:s')) {
+  if(SingleEvent["begins"].split(" ")[0] >= $.cal.date().addDays(0).format('Y-m-d')) {
+    if(SingleEvent["begins"].split(" ")[0] <= $.cal.date().addDays(6).format('Y-m-d')) {
       putevent += '<div class="vtimeline-point" data-uid="' + SingleEvent["uid"] + '">' +
           '        <div class="vtimeline-icon"></div>' +
           '        <div class="vtimeline-block">' +
-          '            <span class="vtimeline-date">' + SingleEvent["begins"] + ", " + SingleEvent["ends"].split(" ")[1] + '</span>' +
+          '            <span class="vtimeline-date"><b>Date</b>: ' + SingleEvent["begins"].split(" ")[0] + " <b>Time</b>: "+SingleEvent["begins"].split(" ")[1]+", " + SingleEvent["ends"].split(" ")[1] + '</span>' +
           '            <div data-vtdate="' + SingleEvent["begins"] + '" class="vtimeline-content">' +
           '                <span class="mobileEventTitle">' + SingleEvent["title"] + '</span>' +
           '                <p>' + SingleEvent["notes"] + '</p>' +
