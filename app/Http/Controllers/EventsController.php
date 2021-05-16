@@ -105,7 +105,7 @@ class EventsController extends Controller
 //        $events->eventEnddate  = $request->events_eventEnddate;
         $events->eventStarttime  = $request->events_time_h . ":" . $request->events_time_m . ":" . $request->events_time_sec;
         $events->eventEndtime  = $request->events_time_eh . ":" . $request->events_time_em . ":" . $request->events_time_esec;
-        $events->eventColor  = "#990066";
+//        $events->eventColor  = "#990066";
         $events->eventResource  = $request->events_eventResource;
         $events->EventId  = rand(0, 10000);
         $events->UserId  = Auth::user()->id;

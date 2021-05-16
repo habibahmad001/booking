@@ -39,7 +39,7 @@
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
-                            <input type="button" class="btn btn-primary" value="<<" style=" float: left; vertical-align: bottom; margin: 4% 0;" onclick="javascript: if($('.leftpan').is(':hidden')) { $('.leftpan').show(300); $('.rightpan').attr('class', 'col-sm-9 text-left rightpan'); $(this).val('>>'); } else { $('.leftpan').hide(300); $('.rightpan').attr('class', 'col-sm-12 text-left rightpan'); $(this).val('<<') }" />
+                            <input type="button" class="btn btn-light" value="<<" style=" float: left; vertical-align: bottom; margin: 4% 0;" onclick="javascript: if($('.leftpan').is(':hidden')) { $('.leftpan').show(300); $('.rightpan').attr('class', 'col-sm-9 text-left rightpan'); $(this).val('<<'); } else { $('.leftpan').hide(300); $('.rightpan').attr('class', 'col-sm-12 text-left rightpan'); $(this).val('>>') }" />
                         </div>
                     </div>
                 </div>
