@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'sendmail'),
+    'driver' => env('MAIL_DRIVER', env('MAIL_DRIVER')),
 
     /*
     |--------------------------------------------------------------------------
@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', env('MAIL_HOST')),
 
     /*
     |--------------------------------------------------------------------------
@@ -42,7 +42,7 @@ return [
     |
     */
 
-    'port' => env('MAIL_PORT', 587),
+    'port' => env('MAIL_PORT', env('MAIL_PORT')),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,9 +56,9 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'euniversitylondon@gmail.com'),
+        'address' => env('MAIL_FROM_ADDRESS', env('MAIL_FROM_ADDRESS')),
 
-        'name' => env('MAIL_FROM_NAME', 'eUniversity London'),
+        'name' => env('MAIL_FROM_NAME', env('APP_NAME')),
     ],
 
     /*
@@ -73,11 +73,11 @@ return [
     */
 
     'stream' => [
-    'ssl' => [
-        'allow_self_signed' => true,
-        'verify_peer' => false,
-        'verify_peer_name' => false,
-    ],
+        'ssl' => [
+            'allow_self_signed' => true,
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+        ],
     ],
 
     'encryption' => env('MAIL_ENCRYPTION', 'tls'),

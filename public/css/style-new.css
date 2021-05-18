@@ -11,7 +11,7 @@ a img{ border:none; }
 :focus{ outline:0; }
 a:focus{ outline:none; }
 /* Global -------------------------------------------------- */
-body{ color:#888888; font-family:Helvetica; font-weight:400; font-size:16px; line-height:22px; background-color: #000; }
+body{ color:#888888; font-family:Helvetica; font-weight:400; font-size:16px; line-height:22px; }
 /* Global Css for headings, p and achors */
 h1,h2,h3,h4,h5,h6{ padding:0; margin:0; }
 h1{ font-size:48px; text-transform:uppercase; position:relative; }
@@ -36,14 +36,14 @@ ul,ul li,ul ol,ul li ul,ul li ul li{ list-style:none; padding:0; margin:0; }
 /*----------------------------Fonts------------------------------*/
 .gradient{ background-image:-webkit-gradient(linear,right top,left bottom,color-stop(0.1, #1DA8CF),color-stop(0.78, #26DE79) ); background-image:-o-linear-gradient(left bottom, #1DA8CF 10%, #26DE79 78%); background-image:-moz-linear-gradient(left bottom, #1DA8CF 10%, #26DE79 78%); background-image:-webkit-linear-gradient(left bottom, #1DA8CF 10%, #26DE79 78%); background-image:-ms-linear-gradient(left bottom, #1DA8CF 10%, #26DE79 78%); background-image:linear-gradient(to left bottom, #1DA8CF 10%, #26DE79 78%); }
 /*---------------------------------------------------------------*/
-.wrapper{ min-height:100vh; position:relative; }
+.wrapper{ min-height:77vh; position:relative; }
 .container{ max-width:1410px; margin:0 auto; padding:0 15px; }
 
 .custom-container{ max-width:830px; margin:0 auto; padding:0 30px; }
 .leaderboard-container{ max-width:1230px; margin:0 auto; padding:0 30px; }
 
 /*-------------------Header Starts Here-----------------*/
-header{ padding:7px 0px 1px; background-image: linear-gradient(to bottom right, #333333 , #000000); }
+header{ padding:7px 0px 1px; background-image: linear-gradient(to bottom right, #cccfff , #ffffff); }
 header.forget-password-header{ padding-bottom:35px; }
 header .logo{ float:left; }
 .logo-txt { float: left; font-size: 30px; padding: 3%;}
@@ -92,7 +92,7 @@ header .right-bar .right-bar-links ul li a i{ margin-right:25px; color:#22c3a4; 
 .form-control.error{ border:1px solid #ef7575!important; }
 /* Header Ends here */
 /*-------------------Banner Starts Here-----------------*/
-.banner{ padding:94px 0px 141px; }
+.banner{ padding:10% 0 0 0; }
  /**/
 .banner .desktop-img{ padding-right:30px; }
 .banner .super-quiz-img{ margin-top:14px; margin-bottom:24px; }
@@ -291,7 +291,7 @@ p.congrats img{ position: absolute; right: -120px; top: -50px; }
 
 /*-------------------Footer Starts Here-----------------*/
 
-footer{ background:#ebebeb; padding:9px 0px; width:100%; bottom:0; background-image: linear-gradient(to bottom right, #333333 , #000000); vertical-align: bottom; }
+footer{ background:#ebebeb; padding:9px 0px; width:100%; bottom:0; background-image: linear-gradient(to bottom right, #cccfff , #ffffff); vertical-align: bottom; }
 footer p.copyrights{ text-align:center; font-size:14px; line-height: 22px; padding:0 15px; }
 
 /*-------------Media Querries-----------------*/
