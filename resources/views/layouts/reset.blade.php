@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="shortcut icon" href="{{{ asset('images/favicons.ico') }}}">
-    <title>eUniversityLondon - Reset Password</title>
+    <title>{!! env("APP_NAME") !!} - Reset Password</title>
     <script src="{{ asset('js/jquery-3.2.1.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}" type="text/javascript"></script>
     <!-- CSS -->
@@ -18,32 +18,26 @@
 </head>
 
 <body>
+    <header>
+        <div class="container-fluid">
+            <div class="logo-txt">
+                <a href="/">{!! env("APP_NAME") !!}</a>
+            </div>
+
+        </div>
+    </header>
+
 
     <div class="wrapper">
-        <!-- Header Starts Here -->
 
-        <header>
-            <div class="container-fluid">
-                <div class="logo-txt">
-                    <a href="/">eUniversityLondon</a>
-                </div>
-
-            </div>
-        </header>
-
-        <!-- Banner Starts Here -->
         @yield('content')
-        
 
-
-
-        <!-- Footer Starts Here -->
-
-        <footer>
-            <p class="copyrights">Copyright © 2020 eUniversityLondon. All Rights Reserved.</p>
-        </footer>
     </div>
 
+
+    <footer>
+        <p class="copyrights">Copyright © {!! date("Y") !!} {!! env("APP_NAME") !!}. All Rights Reserved.</p>
+    </footer>
 
     <script>
         // $('document').ready(function() {

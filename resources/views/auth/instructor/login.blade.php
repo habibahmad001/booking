@@ -9,6 +9,14 @@
                 <form id="login" method="POST" action="{{ route('login') }}" class="login-text-white">
                     {{ csrf_field() }}
                     <input type="hidden" name="formtype" id="formtype" value="instructor">
+                    @if ($errors->any())
+                        <p class="text-center verification-error alert alert-warning">
+                            @foreach ($errors->all() as $error)
+                                {{ $error }}
+                            @endforeach
+                        </p>
+                    @endif
+                    <br />
                     <div class="login-block">
                         <div class="form-group">
                             <label class="" for="email-address">Email</label>
@@ -30,9 +38,7 @@
                         </div>
                     </div>
                     <?php // print_r($errors->all());?>
-                    @if ($errors->any())
-                        <p class="text-center verification-error alert alert-warning">@foreach ($errors->all() as $error){{ $error }} @endforeach</p>
-                    @endif
+
 
                 </form>
             </div>

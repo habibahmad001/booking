@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Hashing\Hasher as HasherContract;
@@ -44,17 +45,19 @@ class ForgotPasswordController extends Controller
         ]);
         
         $reset = DB::table("password_resets")->where('email', $request->email)->first();
-            
+
+        $senduser   =   User::where("email", $request->email)->first();
+
         if(\Hash::check($request->token, $reset->token)){
         $returnrow  =   DB::table('users')
             ->where('email', $request->email)
             ->update(['password' => bcrypt($request->password)]);
         DB::table('password_resets')->where('email', $request->email)->delete();
 
-        return redirect('/login')->withErrors(['Password has been successfully updated']);
+        return redirect(BASE_PATH . $senduser->user_type )->withErrors(['Password has been successfully updated']);
 
         }else{        
-        return redirect('/login')->withErrors(['Your token did not match']);
+        return redirect(BASE_PATH . $senduser->user_type )->withErrors(['Your token did not match']);
 
         }
       

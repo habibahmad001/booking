@@ -37,10 +37,13 @@
                         </div>
                     </div-->
                         <div class="col-md-12 center header-title">
-                            Trainer Login Area
+                            Trainer Area
                         </div>
                     <div class="clear"></div>
                 </header>
+
+                @include( 'blocks.front-main-nav' )
+
                 <!-- Header Ends Here  -->
                 <!-- Banner Starts Here  -->
 

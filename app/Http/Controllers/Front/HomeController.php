@@ -22,7 +22,7 @@ use Session;
 class HomeController extends Controller
 {
     public function __construct() {
-        $this->header_title = "eUniversitylondon";
+        $this->header_title = "Booking System";
     }
 
     public function index() {
@@ -55,7 +55,7 @@ class HomeController extends Controller
         $ledaresarr     = [];
         $userarr        = [];
 
-        $events         = Events::where('status', "no")->get();
+        $events         = Events::where('status', "no")->orderBy("eventStartdate", "asc")->get();
         $data['events'] = $events;
 
         /********** Set lags Arr ********/
@@ -100,7 +100,12 @@ class HomeController extends Controller
         $ledaresarr     = [];
         $userarr        = [];
 
-        $events         = Events::whereIn('UserId', explode(",", $ids))->get();
+        if(count(explode(",", $ids)) > 0) {
+            $events         = Events::whereIn('UserId', explode(",", $ids))->orderBy("eventStartdate", "asc")->get();
+        } else {
+            $events         = Events::where('status', "no")->orderBy("eventStartdate", "asc")->get();
+        }
+
         $data['events'] = $events;
 
         /********** Set lags Arr ********/

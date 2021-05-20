@@ -46,7 +46,7 @@
           <label>Avatar</label>
           <div class="field-container">
             <input id="avatar-1" name="avatar" type="file">
-            <span><img src="{{ (file_exists(public_path().'/uploads/avatars/'. Auth::user()->avatar)) ? URL::asset( BASE_PATH . 'uploads/avatars/' . Auth::user()->avatar ) : 'http://via.placeholder.com/150' }}"></span>
+            <span><img src="{{ (Auth::user()->avatar) ? URL::asset( BASE_PATH . 'uploads/avatars/' . Auth::user()->avatar ) : 'http://via.placeholder.com/150' }}"></span>
           </div>
         </div>
 
