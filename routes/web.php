@@ -69,8 +69,8 @@ Route::middleware(['user','verified'])->group(function () {
 	Route::post('reset_password', 'UserController@reset_password');
 });
 // Registration Routes...
-Route::get('/register', 'Auth\LoginController@showLoginForm')->name('register');
-Route::post('register', 'Auth\RegisterController@register');
+Route::get('/register', 'Auth\RegisterController@ShowRegistration')->name('register');
+Route::post('register', 'Auth\RegisterController@create_user');
 // Login user
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
