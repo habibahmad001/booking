@@ -18,4 +18,19 @@
     .showfull {
         display: none;
     }
+
+    .col-sm-3.leftpan table {
+        margin: 0 0 4% 4% !important;
+        float: left !important;
+        width: 100%;
+    }
+
+    .vtimeline-date {
+        padding: 5%;
+    }
+
+    .col-sm-12.showmobile h2 {
+        color: #fff;
+        margin: 4%;
+    }
 }

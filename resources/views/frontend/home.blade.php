@@ -16,7 +16,7 @@
 <section id="events" class="section teams">
     <br />
     <div class="section-header">
-        <h2 class="wow fadeInDown animated">This week event's</h2>
+        <h2 class="wow fadeInDown animated">This Week Event's</h2>
     </div>
     <div class="row content">
         <div class="col-sm-3 leftpan">
@@ -40,6 +40,13 @@
             <div id="calcont" class="evecalendar">
                 <div id="calendar" class="evecalendar"></div>
             </div>
+        </div>
+    </div>
+
+    <div class="row content">
+        <div class="col-sm-12 showmobile">
+            <!-- Banner Starts Here -->
+            @include("frontend.mobileevents");
         </div>
     </div>
 </section>
@@ -160,7 +167,7 @@
 <section id="package" class="packageList">
     <div class="container">
         <div class="section-header">
-            <h2 class="wow fadeInDown animated">Trainer package's</h2>
+            <h2 class="wow fadeInDown animated">Trainer Package's</h2>
             <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
         </div>
         <div class="row">
@@ -385,8 +392,7 @@
                     V6G 1G9<br>
                     <abbr title="Phone">Tel:</abbr> (604) 555-4321
                 </address>
-                © 2018 Company Name. Template by <a target="_blank" href="http://webthemez.com/" title="Bootstrap Templates">WebThemez.com</a><br/>
-                Find More <a href="https://webthemez.com/free-bootstrap-templates/" target="_blank">Free Bootstrap Templates</a>
+                © {!! date("Y") . " " . env("APP_NAME") !!}. Powered by <a target="_blank" href="{!! env("APP_URL") !!}" title="Bootstrap Templates">{!! env("APP_NAME") !!}</a><br/>
             </div>
 
         </div>
