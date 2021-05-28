@@ -50,7 +50,8 @@ Route::get('/learner', 'Auth\LoginController@showLearnerLoginForm')->name('learn
     /************* Home Starts ***************/
 //    Route::get('/', 'Front\HomeController@index')->name('home');
     Route::get('/booking', 'Front\HomeController@booking')->name('booking');
-    Route::get('/', 'Front\HomeController@events')->name('home');
+    Route::get('/simpe', 'Front\HomeController@events')->name('simpe');
+    Route::get('/', 'Front\HomeController@index')->name('home');
     Route::post('/homelogin', 'Auth\LoginController@homelogin');
     Route::post('/homesignup', 'Auth\RegisterController@create_user');
     Route::get('/forgotpassword', 'Front\HomeController@ForgotPassword');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Hallar;
 use App\User;
 
 use Illuminate\Http\Request;
@@ -147,6 +148,14 @@ class RegisterController extends Controller
         $users->password    = bcrypt($request->password);
         $saved              = $users->save();
         if ($saved) {
+            /******* Create New User ******/
+            $receivedData = array(
+                'name' => $request->first_name . " " . $request->last_name,
+                'uid' => $users->id
+            );
+            $receivedData = (object)$receivedData;
+            User::insertHallar($receivedData);
+            /******* Create New User ******/
             return redirect()->intended('/instructor')->withErrors(['email' => "Your account has been created, Please try to login, Thanks!"]);
         } else {
             return redirect()->back()->with('error', 'Couldn\'t create organization!');

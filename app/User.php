@@ -47,4 +47,24 @@ class User extends Authenticatable
      
     }
 
+    public static function insertHallar($receivedData = '')
+    {
+        if($chkUser = Hallar::where('userID', $receivedData->uid)->first()) {
+            return $chkUser->id;
+        }
+        $Hallar               = new Hallar();
+
+        $Hallar->name           = $receivedData->name;
+        $Hallar->apply_type     = "Passport";
+        $Hallar->price          = 0;
+        $Hallar->register_type  = "Registerd";
+        $Hallar->status         = "no";
+        $Hallar->userID         = $receivedData->uid;
+
+        if($Hallar->save())
+            return $Hallar->id;
+        else
+            return false;
+    }
+
 }
