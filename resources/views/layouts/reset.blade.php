@@ -21,12 +21,13 @@
     <header>
         <div class="container-fluid">
             <div class="logo-txt">
-                <a href="/">{!! env("APP_NAME") !!}</a>
+                <a href="{!! BASE_PATH !!}">{!! env("APP_NAME") !!}</a>
             </div>
 
         </div>
     </header>
 
+    @include( 'blocks.front-main-nav' )
 
     <div class="wrapper">
 

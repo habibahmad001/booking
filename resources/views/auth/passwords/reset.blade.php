@@ -22,7 +22,7 @@
                                     {{ session('status') }}
                                 </div>
                             @endif
-                            <form id="reset_blade" method="POST" action="/password/reset_password">
+                            <form id="reset_blade" method="POST" action="{!! URL::to( BASE_PATH . '/password/reset_password') !!}">
                                  {{ csrf_field() }}
                             <input type="hidden" name="token" value="{{ $token }}">
 
