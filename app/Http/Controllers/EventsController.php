@@ -40,12 +40,8 @@ class EventsController extends Controller
 
             'events_note'=>'required',
             'events_eventStartdate'=>'required',
-            'events_time_h'=>'required',
-            'events_time_m'=>'required',
-            'events_time_sec'=>'required',
-            'events_time_eh'=>'required',
-            'events_time_em'=>'required',
-            'events_time_esec'=>'required',
+            'event_stime'=>'required',
+            'event_etime'=>'required',
             'events_eventResource'=>'required',
             'events_lag'=>'required',
             'events_ledare'=>'required',
@@ -54,9 +50,9 @@ class EventsController extends Controller
         $events->note  = $request->events_note;
         $events->eventStartdate  = $request->events_eventStartdate;
 //        $events->eventEnddate  = $request->events_eventEnddate;
-        $events->eventStarttime  = $request->events_time_h . ":" . $request->events_time_m . ":" . $request->events_time_sec;
-        $events->eventEndtime  = $request->events_time_eh . ":" . $request->events_time_em . ":" . $request->events_time_esec;
-        $events->eventColor  = "#990066";
+        $events->eventStarttime  = $request->event_stime;
+        $events->eventEndtime  = $request->event_etime;
+        $events->eventColor  = $request->eventcolour;
         $events->eventResource  = $request->events_eventResource;
         $events->EventId  = rand(0, 10000);
         $events->UserId  = Auth::user()->id;
@@ -87,12 +83,9 @@ class EventsController extends Controller
 
             'events_note'=>'required',
             'events_eventStartdate'=>'required',
-            'events_time_h'=>'required',
-            'events_time_m'=>'required',
-            'events_time_sec'=>'required',
-            'events_time_eh'=>'required',
-            'events_time_em'=>'required',
-            'events_time_esec'=>'required',
+            'event_stime'=>'required',
+            'event_etime'=>'required',
+            'eventcolour'=>'required',
             'events_eventResource'=>'required',
             'events_lag'=>'required',
             'events_ledare'=>'required',
@@ -103,9 +96,9 @@ class EventsController extends Controller
         $events->note  = $request->events_note;
         $events->eventStartdate  = $request->events_eventStartdate;
 //        $events->eventEnddate  = $request->events_eventEnddate;
-        $events->eventStarttime  = $request->events_time_h . ":" . $request->events_time_m . ":" . $request->events_time_sec;
-        $events->eventEndtime  = $request->events_time_eh . ":" . $request->events_time_em . ":" . $request->events_time_esec;
-//        $events->eventColor  = "#990066";
+        $events->eventStarttime  = $request->event_stime;
+        $events->eventEndtime  = $request->event_etime;
+        $events->eventColor  = $request->eventcolour;
         $events->eventResource  = $request->events_eventResource;
         $events->EventId  = rand(0, 10000);
         $events->UserId  = Auth::user()->id;

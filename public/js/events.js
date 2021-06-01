@@ -41,12 +41,31 @@ $(".edit-icon").click(function () {
 
       $("#edit-events_note").val(events.note);
       $("#edit-events_eventStartdate").val(events.eventStartdate);
-      // $("#edit-events_eventEnddate").val(events.eventEnddate);
+      $("#edit-event_stime").val(events.eventStarttime);
+      $("#edit-event_etime").val(events.eventEndtime);
 
       $("#edit-events_eventResource option").each(function() {
         if($(this).val() == events.eventResource) {
           $(this).attr("selected","selected");
         }
+      });
+
+      jQuery("#edit-colorpicker").spectrum({
+        showPalette: true,
+        showSelectionPalette: true,
+        togglePaletteMoreText: 'more',
+        togglePaletteLessText: 'less',
+        color: events.eventColor,
+        palette: [
+          ["#000","#444","#666","#999","#ccc","#eee","#f3f3f3","#fff"],
+          ["#f00","#f90","#ff0","#0f0","#0ff","#00f","#90f","#f0f"],
+          ["#f4cccc","#fce5cd","#fff2cc","#d9ead3","#d0e0e3","#cfe2f3","#d9d2e9","#ead1dc"],
+          ["#ea9999","#f9cb9c","#ffe599","#b6d7a8","#a2c4c9","#9fc5e8","#b4a7d6","#d5a6bd"],
+          ["#e06666","#f6b26b","#ffd966","#93c47d","#76a5af","#6fa8dc","#8e7cc3","#c27ba0"],
+          ["#c00","#e69138","#f1c232","#6aa84f","#45818e","#3d85c6","#674ea7","#a64d79"],
+          ["#900","#b45f06","#bf9000","#38761d","#134f5c","#0b5394","#351c75","#741b47"],
+          ["#600","#783f04","#7f6000","#274e13","#0c343d","#073763","#20124d","#4c1130"]
+        ]
       });
 
       $("#edit-events_lag option").each(function() {
@@ -57,42 +76,6 @@ $(".edit-icon").click(function () {
 
       $("#edit-events_ledare option").each(function() {
         if($(this).val() == events.ledare) {
-          $(this).attr("selected","selected");
-        }
-      });
-
-      $("#edit-events_time_h option").each(function() {
-        if($(this).val() == stime[0]) {
-          $(this).attr("selected","selected");
-        }
-      });
-
-      $("#edit-events_time_m option").each(function() {
-        if($(this).val() == stime[1]) {
-          $(this).attr("selected","selected");
-        }
-      });
-
-      $("#edit-events_time_sec option").each(function() {
-        if($(this).val() == stime[2]) {
-          $(this).attr("selected","selected");
-        }
-      });
-
-      $("#edit-events_time_eh option").each(function() {
-        if($(this).val() == etime[0]) {
-          $(this).attr("selected","selected");
-        }
-      });
-
-      $("#edit-events_time_em option").each(function() {
-        if($(this).val() == etime[1]) {
-          $(this).attr("selected","selected");
-        }
-      });
-
-      $("#edit-events_time_esec option").each(function() {
-        if($(this).val() == etime[2]) {
           $(this).attr("selected","selected");
         }
       });
@@ -114,12 +97,27 @@ function reset_form() {
   $("#events_eventResource").val('');
   $("#events_lag").val('');
   $("#events_ledare").val('');
-  $("#events_time_h").val('');
-  $("#events_time_m").val('');
-  $("#events_time_sec").val('');
-  $("#events_time_eh").val('');
-  $("#events_time_em").val('');
-  $("#events_time_esec").val('');
+  $("#event_stime").val('');
+  $("#event_etime").val('');
+
+
+  jQuery("#colorpicker").spectrum({
+    showPalette: true,
+    showSelectionPalette: true,
+    togglePaletteMoreText: 'more',
+    togglePaletteLessText: 'less',
+    color: '#f00',
+    palette: [
+      ["#000","#444","#666","#999","#ccc","#eee","#f3f3f3","#fff"],
+      ["#f00","#f90","#ff0","#0f0","#0ff","#00f","#90f","#f0f"],
+      ["#f4cccc","#fce5cd","#fff2cc","#d9ead3","#d0e0e3","#cfe2f3","#d9d2e9","#ead1dc"],
+      ["#ea9999","#f9cb9c","#ffe599","#b6d7a8","#a2c4c9","#9fc5e8","#b4a7d6","#d5a6bd"],
+      ["#e06666","#f6b26b","#ffd966","#93c47d","#76a5af","#6fa8dc","#8e7cc3","#c27ba0"],
+      ["#c00","#e69138","#f1c232","#6aa84f","#45818e","#3d85c6","#674ea7","#a64d79"],
+      ["#900","#b45f06","#bf9000","#38761d","#134f5c","#0b5394","#351c75","#741b47"],
+      ["#600","#783f04","#7f6000","#274e13","#0c343d","#073763","#20124d","#4c1130"]
+    ]
+  });
 }
 
 function validateEmailExist(type) {
@@ -153,12 +151,8 @@ function validate(type) {
   var events_eventResource = $("#"+ type +"events_eventResource").val();
   var events_lag = $("#"+ type +"events_lag").val();
   var events_ledare = $("#"+ type +"events_ledare").val();
-  var events_time_h = $("#"+ type +"events_time_h").val();
-  var events_time_m = $("#"+ type +"events_time_m").val();
-  var events_time_sec = $("#"+ type +"events_time_sec").val();
-  var events_time_eh = $("#"+ type +"events_time_eh").val();
-  var events_time_em = $("#"+ type +"events_time_em").val();
-  var events_time_esec = $("#"+ type +"events_time_esec").val();
+  var event_stime = $("#"+ type +"event_stime").val();
+  var event_etime = $("#"+ type +"event_etime").val();
 
 
   if(events_note == '') {
@@ -186,28 +180,12 @@ function validate(type) {
     errors.push("#"+ type +"events_ledare");
   }
 
-  if(events_time_h == '') {
-    errors.push("#"+ type +"events_time_h");
+  if(event_stime == '') {
+    errors.push("#"+ type +"event_stime");
   }
 
-  if(events_time_m == '') {
-    errors.push("#"+ type +"events_time_m");
-  }
-
-  if(events_time_sec == '') {
-    errors.push("#"+ type +"events_time_sec");
-  }
-
-  if(events_time_eh == '') {
-    errors.push("#"+ type +"events_time_eh");
-  }
-
-  if(events_time_em == '') {
-    errors.push("#"+ type +"events_time_em");
-  }
-
-  if(events_time_esec == '') {
-    errors.push("#"+ type +"events_time_esec");
+  if(event_etime == '') {
+    errors.push("#"+ type +"event_etime");
   }
 
   if(errors.length>0){
@@ -221,11 +199,42 @@ function validate(type) {
 }
 
 $( function() {
-  $( "#events_eventStartdate, #edit-events_eventStartdate" ).datepicker({
-    showOn: "button",
-    buttonImage: "../images/calendar.gif",
-    buttonImageOnly: true,
-    buttonText: "Select date",
-    dateFormat: "yy-mm-dd"
+  // $( "#events_eventStartdate, #edit-events_eventStartdate" ).datepicker({
+  //   showOn: "button",
+  //   buttonImage: "../images/calendar.gif",
+  //   buttonImageOnly: true,
+  //   buttonText: "Select date",
+  //   dateFormat: "yy-mm-dd"
+  // });
+
+  jQuery('#event_stime, #edit-event_stime').Zebra_DatePicker({
+    format: 'H:i:s'
+  });
+
+  jQuery('#event_etime, #edit-event_etime').Zebra_DatePicker({
+    format: 'H:i:s'
+  });
+
+  jQuery('#events_eventStartdate, #edit-events_eventStartdate').Zebra_DatePicker({
+    format: 'Y-m-d',
+    show_week_number: 'Wk'
+  });
+
+  jQuery("#colorpicker").spectrum({
+    showPalette: true,
+    showSelectionPalette: true,
+    togglePaletteMoreText: 'more',
+    togglePaletteLessText: 'less',
+    color: '#f00',
+    palette: [
+      ["#000","#444","#666","#999","#ccc","#eee","#f3f3f3","#fff"],
+      ["#f00","#f90","#ff0","#0f0","#0ff","#00f","#90f","#f0f"],
+      ["#f4cccc","#fce5cd","#fff2cc","#d9ead3","#d0e0e3","#cfe2f3","#d9d2e9","#ead1dc"],
+      ["#ea9999","#f9cb9c","#ffe599","#b6d7a8","#a2c4c9","#9fc5e8","#b4a7d6","#d5a6bd"],
+      ["#e06666","#f6b26b","#ffd966","#93c47d","#76a5af","#6fa8dc","#8e7cc3","#c27ba0"],
+      ["#c00","#e69138","#f1c232","#6aa84f","#45818e","#3d85c6","#674ea7","#a64d79"],
+      ["#900","#b45f06","#bf9000","#38761d","#134f5c","#0b5394","#351c75","#741b47"],
+      ["#600","#783f04","#7f6000","#274e13","#0c343d","#073763","#20124d","#4c1130"]
+    ]
   });
 });
