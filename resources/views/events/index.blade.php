@@ -5,6 +5,14 @@
 @include('events.edit')
 @include('events.create')
 
+<link rel="stylesheet" href="{{ asset('css/zebra_datepicker.min.css')}}" type="text/css">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
+
+<style>
+    span.Zebra_DatePicker_Icon_Wrapper {
+        width: 100% !important;
+    }
+</style>
 <!-- Edit form -->
 <div class="center-content-area table-set">
     <div class="table-responsive">
@@ -70,4 +78,7 @@
 
 @section('js_libraries')
 <script type="text/javascript" src="{{ asset('js/events.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/zebra_pin@2.0.0/dist/zebra_pin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
+<script src="{{ asset('js/zebra_datepicker.min.js')}}"></script>
 @endsection

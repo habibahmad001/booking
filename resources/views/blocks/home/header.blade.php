@@ -20,7 +20,7 @@
         <div class="col-md-10">
             <div class="banner-text text-center">
                 <h1>Get Started</h1>
-                <p>Manage you'r Task's</p>
+                <p>Manage you'r Task</p>
                 {{--<div class="countdown styled"></div>--}}
             </div>
             <!-- banner text -->

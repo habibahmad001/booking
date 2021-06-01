@@ -1127,3 +1127,8 @@ min-width: initial !important;
 	bottom: 0px;
 	border: 1px solid #bbb;
 }
+
+
+#calendar p {
+	font-size: 10px;
+}
