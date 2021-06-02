@@ -102,6 +102,8 @@ function reset_form() {
 
 
   jQuery("#colorpicker").spectrum({
+    preferredFormat: "hex3",
+    showInput: true,
     showPalette: true,
     showSelectionPalette: true,
     togglePaletteMoreText: 'more',
@@ -221,6 +223,8 @@ $( function() {
   });
 
   jQuery("#colorpicker").spectrum({
+    preferredFormat: "hex3",
+    showInput: true,
     showPalette: true,
     showSelectionPalette: true,
     togglePaletteMoreText: 'more',
