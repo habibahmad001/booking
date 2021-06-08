@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Str;
 
@@ -23,8 +24,16 @@ class HallarController extends Controller
 
         $data['sub_heading']  = 'Hallar';
         $data['page_title']   = 'Booking System Hallar';
-        $data['Hallar']        =  Hallar::where("status", "no")->paginate(7);
+        $data['Hallar']        =  Hallar::paginate(7);
         return view('hallar/index', $data);
+    }
+
+    public function UserHallar($id) {
+
+        $data['sub_heading']  = 'Hallar';
+        $data['page_title']   = 'Booking System Hallar';
+        $data['User']        =  User::find($id);
+        return view('hallar/user', $data);
     }
 
     public function HallarAdd(Request $request){ //exit($request->axaxa);
@@ -79,6 +88,25 @@ class HallarController extends Controller
         $data         = [];
         $Hallar         = Hallar::find($id);
         $data['hallar'] = $Hallar;
+        return Response::json($data);
+    }
+
+    public function SwitcherHallar(Request $request) {
+
+        $data               = [];
+
+        $Hallar             = Hallar::find($request->id);
+
+        if($Hallar->status == "yes") {
+            $Hallar->status  = "no";
+        } else {
+            $Hallar->status  = "yes";
+        }
+
+        $Hallar->save();
+
+        $data['success']    = "Yes";
+        $data['id']         = $Hallar->status;
         return Response::json($data);
     }
 

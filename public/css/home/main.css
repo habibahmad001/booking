@@ -1129,11 +1129,19 @@ min-width: initial !important;
 }
 
 
-#calendar p {
+.evecalendar p {
 	font-size: 10px;
 }
 
+ul.dropdown-menu.dropdown-menu-dark {
+	background: #000;
+}
 
-#evecalendar p {
-	font-size: 10px;
+ul.dropdown-menu.dropdown-menu-dark a {
+	color: #fff;
+	padding: 10px 30px;
+}
+
+ul.dropdown-menu.dropdown-menu-dark a:hover {
+	background: transparent;
 }
