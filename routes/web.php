@@ -136,6 +136,8 @@ Route::middleware(['admin'])->group(function () {
     Route::post('/admin/hallar_add', 'HallarController@HallarAdd');
     Route::get('/admin/gethallar/{hallar_id}', 'HallarController@GetHallar');
     Route::post('/admin/update-hallar', 'HallarController@UpdateHallar');
+    Route::post('/admin/switch-hallar', 'HallarController@SwitcherHallar');
+    Route::get('/admin/user_hallar/{id}', 'HallarController@UserHallar');
     /*************** Hallar Ends ***************/
 
     /*************** Lag Starts ***************/

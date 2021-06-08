@@ -30,6 +30,7 @@
 </head>
 <body>
 <input type="hidden" name="basepath" id="basepath" value="{!! BASE_PATH !!}">
+<input type="hidden" name="token" id="token" value="{{ csrf_token() }}">
   <div class="wrapper">
 		<header>
 			@if(session()->has('message'))
@@ -104,6 +105,7 @@
   		<link href="{{ asset('css/summernote.css') }}" rel="stylesheet" type="text/css" />
   		<script type="text/javascript" src="{{ asset('js/summernote.js') }}"></script>
 		 @yield('js_libraries')
+		 @yield('popups')
 </body>
 </html>
 
