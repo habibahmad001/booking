@@ -146,6 +146,7 @@ Route::middleware(['admin'])->group(function () {
     Route::post('/admin/lag_add', 'LagController@LagAdd');
     Route::get('/admin/getlag/{lag_id}', 'LagController@GetLag');
     Route::post('/admin/update-lag', 'LagController@UpdateLag');
+    Route::post('/admin/switch-lag', 'LagController@Switcherlag');
     /*************** Lag Ends ***************/
 
     /*************** Ledare Starts ***************/
@@ -154,6 +155,7 @@ Route::middleware(['admin'])->group(function () {
     Route::post('/admin/ledare_add', 'LedareController@LedareAdd');
     Route::get('/admin/getledare/{ledare_id}', 'LedareController@GetLedare');
     Route::post('/admin/update-ledare', 'LedareController@UpdateLedare');
+    Route::post('/admin/switch-ledare', 'LedareController@SwitcherLedare');
     /*************** Ledare Ends ***************/
 
     /*************** CurriCulums Starts ***************/

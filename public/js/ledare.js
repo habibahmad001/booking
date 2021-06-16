@@ -127,3 +127,39 @@ function validate(type) {
 
   return true;
 }
+
+
+$('input[name="switchers"]').change(function(){
+  //if($(this).prop("checked") == true){
+
+  // alert($(this).data('id'));
+  var basepath = $("#basepath").val();
+
+  jQuery.ajax({
+    beforeSend: function () {
+
+    },
+    headers: {
+      'X-CSRF-TOKEN': $('#token').val()
+    },
+    type: 'POST',
+
+    url: basepath + 'admin/switch-ledare',
+
+    data: {
+      id : $(this).data('id'),
+    },
+
+    success: function (response) {
+
+      if (response.success){
+        // alert(response.id);
+      }
+
+    },
+    complete: function () {
+
+    }
+  });
+  //}
+});

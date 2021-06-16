@@ -23,7 +23,7 @@ class LedareController extends Controller
 
         $data['sub_heading']  = 'Ledare';
         $data['page_title']   = 'Booking System Ledare';
-        $data['ledare']        =  Ledare::where("status", "no")->paginate(7);
+        $data['ledare']        =  Ledare::paginate(7);
         return view('ledare/index', $data);
     }
 
@@ -99,6 +99,25 @@ class LedareController extends Controller
         $data         = [];
         $ledare         = Ledare::find($id);
         $data['ledare'] = $ledare;
+        return Response::json($data);
+    }
+
+    public function SwitcherLedare(Request $request) {
+
+        $data               = [];
+
+        $Ledare             = Ledare::find($request->id);
+
+        if($Ledare->status == "yes") {
+            $Ledare->status  = "no";
+        } else {
+            $Ledare->status  = "yes";
+        }
+
+        $Ledare->save();
+
+        $data['success']    = "Yes";
+        $data['id']         = $Ledare->status;
         return Response::json($data);
     }
 
