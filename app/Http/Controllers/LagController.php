@@ -23,7 +23,7 @@ class LagController extends Controller
 
         $data['sub_heading']  = 'Lag';
         $data['page_title']   = 'Booking System Lag';
-        $data['lag']        =  Lag::where("status", "no")->paginate(7);
+        $data['lag']        =  Lag::paginate(7);
         return view('lag/index', $data);
     }
 
@@ -72,6 +72,25 @@ class LagController extends Controller
         $data         = [];
         $lag         = Lag::find($id);
         $data['lag'] = $lag;
+        return Response::json($data);
+    }
+
+    public function Switcherlag(Request $request) {
+
+        $data               = [];
+
+        $Lag             = Lag::find($request->id);
+
+        if($Lag->status == "yes") {
+            $Lag->status  = "no";
+        } else {
+            $Lag->status  = "yes";
+        }
+
+        $Lag->save();
+
+        $data['success']    = "Yes";
+        $data['id']         = $Lag->status;
         return Response::json($data);
     }
 
